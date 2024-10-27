@@ -8,9 +8,12 @@ public class Tabuada {
 		
 		if (opcao == 1) {
 			tabuada.calculaTabuadaDe1A10();
-		} else {
+		} else if (opcao == 2) {
 			int numero = tabuada.pedeNumeroAoUsuarioERetornaONumero();
 			tabuada.calculaTabuadaPorNumeroInformado(numero);
+		} else {
+			System.out.println("Você digitou uma opção inválida!");
+			System.out.println("Por favor, informe uma opção válida.");
 		}
 	}
 
