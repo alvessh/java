@@ -1,5 +1,3 @@
-# Criando o conteúdo da aula em formato Markdown, com a alteração solicitada no exemplo.
-
 # Aula: Introdução à Lógica de Programação
 
 ## 1. Introdução à Lógica de Programação
