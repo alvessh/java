@@ -1,11 +1,11 @@
 package br.com.olamundo;
 
 public class OlaMundo {
-	public void correr(String comida) {
+	public static void correr(String comida) {
 		System.out.println(mensagem() + comida);
 	}
 	
-	public String mensagem() {
+	public static String mensagem() {
 		return "Terminei de correr e agora vou comer: ";
 	}
 	
