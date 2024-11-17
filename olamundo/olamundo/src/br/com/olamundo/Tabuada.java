@@ -8,12 +8,20 @@ public class Tabuada {
 	}
 
 	private void inicia(Tabuada tabuada) {
-		int opcaoPrincipal = tabuada.menuPrincipal();
+		int opcaoPrincipal;
+		do {
+			opcaoPrincipal = tabuada.menuPrincipal();
 
-		String operador = tabuada.defineOperador(opcaoPrincipal);
+			String operador = tabuada.defineOperador(opcaoPrincipal);
 
-		int opcao = tabuada.menu();
-		tabuada.defineOpcao(tabuada, opcao, operador);
+			if (!operador.equals("S") && !operador.equals("N#D")) {
+				int opcao = tabuada.menu();
+				tabuada.defineOpcao(tabuada, opcao, operador);
+			}
+		} while (opcaoPrincipal != 5);
+
+		System.out.println("============Saindo do sistema.====================");
+		System.out.println("==================================================");
 	}
 
 	private void defineOpcao(Tabuada tabuada, int opcao, String operador) {
@@ -38,6 +46,8 @@ public class Tabuada {
 			operador = "*";
 		} else if (opcaoPrincipal == 4) {
 			operador = "/";
+		} else if (opcaoPrincipal == 5) {
+			operador = "S"; //S = Sair do sistema
 		} else {
 			System.out.println("Você digitou uma opção inválida!");
 		}
@@ -50,6 +60,8 @@ public class Tabuada {
 			int resultado = calc(numeroInformado, operador, i);
 
 			System.out.println(numeroInformado + operador + i + " = " + resultado);
+			
+			System.out.println("============================");
 		}
 	}
 
@@ -58,7 +70,6 @@ public class Tabuada {
 			System.out.println("============ TABUADA DO: " + y + "================");
 			for(int i = 1; i <= 10; i++) {
 				int resultado = calc(y, operador, i);
-
 				System.out.println(y + operador + i + " = " + resultado);
 			}
 			System.out.println("============================");
@@ -110,6 +121,7 @@ public class Tabuada {
 		System.out.println("2 - Subtração");
 		System.out.println("3 - Multiplicação");
 		System.out.println("4 - Divisão");
+		System.out.println("5 - Sair do sistema");
 
 		Scanner teclado = new Scanner(System.in);
 		int opcao = teclado.nextInt();
