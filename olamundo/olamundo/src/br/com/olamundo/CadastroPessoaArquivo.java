@@ -6,27 +6,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CadastroPessoa2 {
+public class CadastroPessoaArquivo {
 
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
-		
-		System.out.println("Menu: ");
-		System.out.println("1 - Cadastrar uma pessoa");
-		System.out.println("2 - Listar pessoas cadastradas");
-		System.out.println("3 - Sair");
-		int opcao = teclado.nextInt();
-		teclado.nextLine();
 
-		if (opcao == 1) {
-			cadastrarPessoa();
-		} else if (opcao == 2) {
-			listarPessoas("Informacoes_Pessoais");
-		} else if (opcao == 3) {
-			System.out.println("Saindo...");
-		} else {
-			System.out.println("Opção inválida.");
-		}
+		//menu
+		int opcao;
+		do {
+			System.out.println("Menu: ");
+			System.out.println("1 - Cadastrar uma pessoa");
+			System.out.println("2 - Listar pessoas cadastradas");
+			System.out.println("3 - Sair");
+			opcao = teclado.nextInt();
+			teclado.nextLine();
+
+			if (opcao == 1) {
+				cadastrarPessoa();
+			} else if (opcao == 2) {
+				listarPessoas("Informacoes_Pessoais");
+			} else if (opcao == 3) {
+				System.out.println("Saindo...do sistema...");
+			} else {
+				System.out.println("Opção inválida.");
+			}
+		} while(opcao != 3);
 	}
 
 	public static void salvarInformacoes(String nomeArquivo, String conteudo) {
@@ -43,7 +47,7 @@ public class CadastroPessoa2 {
 		StringBuilder informacoesPessoais = new StringBuilder();
 
 		informacoesPessoais.append("Nome completo: ");
-		
+
 		System.out.print("Nome completo: ");
 		String nome = teclado.nextLine();
 		informacoesPessoais.append(nome);
@@ -56,20 +60,20 @@ public class CadastroPessoa2 {
 	}
 
 	public static void listarPessoas(String nomeArquivo) {
-        File arquivo = new File(nomeArquivo + ".txt");
+		File arquivo = new File(nomeArquivo + ".txt");
 
-        if (arquivo.exists()) {
-            System.out.println("Pessoas cadastradas:");
+		if (arquivo.exists()) {
+			System.out.println("Pessoas cadastradas:");
 
-            try (Scanner scanner = new Scanner(arquivo)) {
-            	for (; scanner.hasNextLine(); ) {
-                    System.out.println(scanner.nextLine());
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println("Erro ao abrir o arquivo: " + e.getMessage());
-            }
-        } else {
-            System.out.println("Nenhuma pessoa cadastrada.");
-        }
-    }
+			try (Scanner scanner = new Scanner(arquivo)) {
+				for (; scanner.hasNextLine(); ) {
+					System.out.println(scanner.nextLine());
+				}
+			} catch (FileNotFoundException e) {
+				System.out.println("Erro ao abrir o arquivo: " + e.getMessage());
+			}
+		} else {
+			System.out.println("Nenhuma pessoa cadastrada.");
+		}
+	}
 }
