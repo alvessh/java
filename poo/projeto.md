@@ -17,7 +17,7 @@ Desenvolver um sistema web simples para gerenciar produtos em estoque, controlan
 ## Tecnologias Utilizadas
 - **Java Servlet:** Para criação das rotas e renderização do HTML.
 - **Apache Tomcat:** Servidor de aplicação para executar o projeto.
-- **Banco de Dados:** H2 (embarcado) para facilitar o desenvolvimento e testes.
+- **Banco de Dados:** MySQL
 - **HTML e CSS:** O HTML será gerado via PrintWriter no Servlet.
 
 ---
